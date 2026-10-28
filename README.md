@@ -17,7 +17,7 @@
 
 > [!WARNING]
 > **RipperDoc is currently in BETA (v1.0.0-beta).**  
-> We are actively testing features across various modern website architectures and Adobe Photoshop versions. If you encounter an unsupported website structure, edge cases, or bugs, please feel free to open an **[Issue](https://github.com/Nephuxs/ripper-doc/issues)**!
+> We are actively testing features across various modern website architectures and Adobe Photoshop versions. If you encounter an unsupported website structure, edge cases, or bugs, please feel free to open an **[Issue](https://github.com/Nephuxs/ripperdoc/issues)**!
 
 ---
 
@@ -52,7 +52,7 @@ You can install RipperDoc using either the **One-Click Installer (`.ccx`)** or t
 
 ### Option 1: One-Click Installer (`.ccx`) — Recommended
 
-1. Download **`RipperDoc.ccx`** from the [**Releases**](https://github.com/Nephuxs/ripper-doc/releases) page.
+1. Download **`RipperDoc.ccx`** from the [**Releases**](https://github.com/Nephuxs/ripperdoc/releases) page.
 2. **Double-click** `RipperDoc.ccx`.
 3. Adobe Creative Cloud will launch and display:
    > *"Verify Failed: This plugin has not been verified by Adobe"*  
@@ -66,7 +66,7 @@ You can install RipperDoc using either the **One-Click Installer (`.ccx`)** or t
 
 If you prefer not to use Creative Cloud, you can drop the plugin folder directly into Photoshop's native UXP directory:
 
-1. Download **`RipperDoc.zip`** from the [**Releases**](https://github.com/Nephuxs/ripper-doc/releases) page and extract it.
+1. Download **`RipperDoc.zip`** from the [**Releases**](https://github.com/Nephuxs/ripperdoc/releases) page and extract it.
 2. Move the extracted `RipperDoc` folder into:
    * **Windows**:
      ```text
@@ -86,7 +86,7 @@ If you prefer not to use Creative Cloud, you can drop the plugin folder directly
 If you are modifying code or contributing:
 1. Clone this repository:
    ```bash
-   git clone https://github.com/Nephuxs/ripper-doc.git
+   git clone https://github.com/Nephuxs/ripperdoc.git
    ```
 2. Open the **Adobe UXP Developer Tool (UDT)**.
 3. Click **Add Plugin** $\rightarrow$ select `manifest.json`.
