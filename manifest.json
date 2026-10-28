@@ -1,0 +1,56 @@
+{
+  "manifestVersion": 5,
+  "id": "com.ripperdoc.photoshop",
+  "name": "RipperDoc",
+  "version": "1.0.0",
+  "main": "index.html",
+  "host": {
+    "app": "PS",
+    "minVersion": "22.0.0"
+  },
+  "entrypoints": [
+    {
+      "type": "panel",
+      "id": "ripperDocPanel",
+      "label": {
+        "default": "RipperDoc"
+      },
+      "minimumSize": {
+        "width": 240,
+        "height": 280
+      },
+      "maximumSize": {
+        "width": 2560,
+        "height": 2560
+      },
+      "preferredFloatingSize": {
+        "width": 380,
+        "height": 700
+      },
+      "preferredDockedSize": {
+        "width": 340,
+        "height": 650
+      }
+    }
+  ],
+  "requiredPermissions": {
+    "network": {
+      "domains": "all"
+    },
+    "localFileSystem": "fullAccess",
+    "clipboard": "readAndWrite",
+    "allowCodeGenerationFromStrings": true
+  },
+  "icons": [
+    {
+      "width": 23,
+      "height": 23,
+      "path": "icons/icon-23.png"
+    },
+    {
+      "width": 46,
+      "height": 46,
+      "path": "icons/icon-46.png"
+    }
+  ]
+}
