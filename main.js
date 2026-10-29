@@ -52,8 +52,7 @@
   // -------------------------------------------------------------
   let allAssets = [];
   let currentFilter = "all";
-  let currentThumbSize = 115;
-
+  
   // -------------------------------------------------------------
   // DOM Elements
   // -------------------------------------------------------------
@@ -67,8 +66,6 @@
   const assetGrid = document.getElementById("assetGrid");
   const appFooter = document.getElementById("appFooter");
   const visibleStats = document.getElementById("visibleStats");
-  const sizeSlider = document.getElementById("sizeSlider");
-  const sizeValue = document.getElementById("sizeValue");
   const toast = document.getElementById("toast");
   const rebootBtn = document.getElementById("rebootBtn");
 
@@ -140,17 +137,9 @@
       }, { passive: true });
     }
 
-    // Thumbnail size slider
-    sizeSlider.addEventListener("input", (e) => {
-      currentThumbSize = parseInt(e.target.value, 10) || 115;
-      sizeValue.textContent = `${currentThumbSize}px`;
-      document.documentElement.style.setProperty("--thumb-size", `${currentThumbSize}px`);
-      document.querySelectorAll(".asset-card").forEach((c) => {
-        c.style.width = `${currentThumbSize}px`;
-      });
-      document.querySelectorAll(".card-preview").forEach((p) => {
-        p.style.height = `${currentThumbSize}px`;
-      });
+    // Auto-scale 3-column layout on window resize
+    window.addEventListener("resize", () => {
+      updateDynamicGridColumns();
     });
 
     // Reboot button handler
@@ -760,20 +749,36 @@
       }
     });
 
+
+    updateDynamicGridColumns();
     updateVisibleStats();
   }
+
+  function updateDynamicGridColumns() {
+    if (!assetGrid) return;
+    const gridWidth = assetGrid.clientWidth;
+    if (gridWidth > 60) {
+      // 3 columns, 2 gaps of 6px = 12px
+      const cardWidth = Math.floor((gridWidth - 12) / 3);
+      if (cardWidth > 20) {
+        const previews = assetGrid.querySelectorAll(".card-preview");
+        for (let i = 0; i < previews.length; i++) {
+          previews[i].style.height = `${cardWidth}px`;
+        }
+      }
+    }
+  }
+
 
   function createAssetCard(asset) {
     const card = document.createElement("div");
     card.className = "asset-card";
     card.setAttribute("draggable", "true");
     card.title = `${asset.filename}\nClick RIP to import or save`;
-    card.style.width = `${currentThumbSize}px`;
 
     const previewContainer = document.createElement("div");
     previewContainer.className = "card-preview";
     previewContainer.style.width = "100%";
-    previewContainer.style.height = `${currentThumbSize}px`;
 
     // Format Badge
     const badge = document.createElement("span");

@@ -26,7 +26,7 @@
       </div>
     </header>
 
-    <!-- URL Input Section -->
+    <!-- URL Input & Side-by-Side Action Buttons -->
     <section class="search-section">
       <div class="input-wrapper">
         <input 
@@ -39,138 +39,126 @@
       </div>
 
       <div class="button-row">
-        <button id="ripBtn" class="btn btn-rip">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <button id="ripBtn" class="btn btn-rip" title="Extract all media assets from page">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
           </svg>
           <span id="ripBtnText">HARVEST ASSETS</span>
         </button>
-      </div>
-    </section>
 
-    <!-- Controls & Single Filter Dropdown -->
-    <section class="controls-section">
-      <div class="filter-dropdown-wrapper" id="filterDropdownWrapper">
-        <button id="filterDropdownBtn" class="filter-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="Click to select file filter">
-          <div class="filter-btn-left">
-            <svg class="filter-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
-              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
-            </svg>
-            <span class="filter-label-prefix">FILTER:</span>
-            <span id="activeFilterName" class="filter-label-active">ALL ASSETS</span>
-          </div>
-          <div class="filter-btn-right">
-            <span id="activeFilterBadge" class="filter-count-badge">0</span>
-            <svg class="dropdown-chevron" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </div>
-        </button>
+        <div class="filter-dropdown-wrapper" id="filterDropdownWrapper">
+          <button id="filterDropdownBtn" class="filter-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="Click to filter assets">
+            <div class="filter-btn-left">
+              <svg class="filter-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+              </svg>
+              <span class="filter-label-prefix">FILTER:</span>
+              <span id="activeFilterName" class="filter-label-active">ALL</span>
+            </div>
+            <div class="filter-btn-right">
+              <span id="activeFilterBadge" class="filter-count-badge">0</span>
+              <svg class="dropdown-chevron" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </button>
 
-        <!-- Dropdown Menu List with Categorized Badges -->
-        <div id="filterDropdownMenu" class="filter-dropdown-menu" style="display: none;">
-          <div class="dropdown-group-header">PRIMARY</div>
-          <div class="dropdown-item active" data-filter="all">
-            <div class="dropdown-item-left">
-              <span class="filter-dot dot-all"></span>
-              <span class="dropdown-item-title">ALL ASSETS</span>
+          <!-- Dropdown Menu List with Categorized Badges -->
+          <div id="filterDropdownMenu" class="filter-dropdown-menu" style="display: none;">
+            <div class="dropdown-group-header">PRIMARY</div>
+            <div class="dropdown-item active" data-filter="all">
+              <div class="dropdown-item-left">
+                <span class="filter-dot dot-all"></span>
+                <span class="dropdown-item-title">ALL ASSETS</span>
+              </div>
+              <span class="dropdown-item-count" id="count-all">0</span>
             </div>
-            <span class="dropdown-item-count" id="count-all">0</span>
-          </div>
 
-          <div class="dropdown-group-header">IMAGES (WEBP, AVIF, PNG, JPG, SVG, GIF, ICO)</div>
-          <div class="dropdown-item" data-filter="images">
-            <div class="dropdown-item-left">
-              <span class="filter-dot dot-images"></span>
-              <span class="dropdown-item-title">ALL IMAGES</span>
+            <div class="dropdown-group-header">IMAGES (WEBP, AVIF, PNG, JPG, SVG, GIF, ICO)</div>
+            <div class="dropdown-item" data-filter="images">
+              <div class="dropdown-item-left">
+                <span class="filter-dot dot-images"></span>
+                <span class="dropdown-item-title">ALL IMAGES</span>
+              </div>
+              <span class="dropdown-item-count" id="count-images">0</span>
             </div>
-            <span class="dropdown-item-count" id="count-images">0</span>
-          </div>
-          <div class="dropdown-item" data-filter="png">
-            <div class="dropdown-item-left">
-              <span class="filter-dot dot-png"></span>
-              <span class="dropdown-item-title">PNG (.png)</span>
+            <div class="dropdown-item" data-filter="png">
+              <div class="dropdown-item-left">
+                <span class="filter-dot dot-png"></span>
+                <span class="dropdown-item-title">PNG (.png)</span>
+              </div>
+              <span class="dropdown-item-count" id="count-png">0</span>
             </div>
-            <span class="dropdown-item-count" id="count-png">0</span>
-          </div>
-          <div class="dropdown-item" data-filter="jpg">
-            <div class="dropdown-item-left">
-              <span class="filter-dot dot-jpg"></span>
-              <span class="dropdown-item-title">JPG / JPEG (.jpg, .jpeg)</span>
+            <div class="dropdown-item" data-filter="jpg">
+              <div class="dropdown-item-left">
+                <span class="filter-dot dot-jpg"></span>
+                <span class="dropdown-item-title">JPG / JPEG (.jpg, .jpeg)</span>
+              </div>
+              <span class="dropdown-item-count" id="count-jpg">0</span>
             </div>
-            <span class="dropdown-item-count" id="count-jpg">0</span>
-          </div>
-          <div class="dropdown-item" data-filter="webp">
-            <div class="dropdown-item-left">
-              <span class="filter-dot dot-webp"></span>
-              <span class="dropdown-item-title">WEBP (.webp)</span>
+            <div class="dropdown-item" data-filter="webp">
+              <div class="dropdown-item-left">
+                <span class="filter-dot dot-webp"></span>
+                <span class="dropdown-item-title">WEBP (.webp)</span>
+              </div>
+              <span class="dropdown-item-count" id="count-webp">0</span>
             </div>
-            <span class="dropdown-item-count" id="count-webp">0</span>
-          </div>
-          <div class="dropdown-item" data-filter="avif">
-            <div class="dropdown-item-left">
-              <span class="filter-dot dot-avif"></span>
-              <span class="dropdown-item-title">AVIF (.avif)</span>
+            <div class="dropdown-item" data-filter="avif">
+              <div class="dropdown-item-left">
+                <span class="filter-dot dot-avif"></span>
+                <span class="dropdown-item-title">AVIF (.avif)</span>
+              </div>
+              <span class="dropdown-item-count" id="count-avif">0</span>
             </div>
-            <span class="dropdown-item-count" id="count-avif">0</span>
-          </div>
-          <div class="dropdown-item" data-filter="svg">
-            <div class="dropdown-item-left">
-              <span class="filter-dot dot-svg"></span>
-              <span class="dropdown-item-title">SVG Vector (.svg)</span>
+            <div class="dropdown-item" data-filter="svg">
+              <div class="dropdown-item-left">
+                <span class="filter-dot dot-svg"></span>
+                <span class="dropdown-item-title">SVG Vector (.svg)</span>
+              </div>
+              <span class="dropdown-item-count" id="count-svg">0</span>
             </div>
-            <span class="dropdown-item-count" id="count-svg">0</span>
-          </div>
-          <div class="dropdown-item" data-filter="gif">
-            <div class="dropdown-item-left">
-              <span class="filter-dot dot-gif"></span>
-              <span class="dropdown-item-title">GIF Animation (.gif)</span>
+            <div class="dropdown-item" data-filter="gif">
+              <div class="dropdown-item-left">
+                <span class="filter-dot dot-gif"></span>
+                <span class="dropdown-item-title">GIF Animation (.gif)</span>
+              </div>
+              <span class="dropdown-item-count" id="count-gif">0</span>
             </div>
-            <span class="dropdown-item-count" id="count-gif">0</span>
-          </div>
-          <div class="dropdown-item" data-filter="ico">
-            <div class="dropdown-item-left">
-              <span class="filter-dot dot-ico"></span>
-              <span class="dropdown-item-title">ICO Icon / Favicon (.ico)</span>
+            <div class="dropdown-item" data-filter="ico">
+              <div class="dropdown-item-left">
+                <span class="filter-dot dot-ico"></span>
+                <span class="dropdown-item-title">ICO Icon / Favicon (.ico)</span>
+              </div>
+              <span class="dropdown-item-count" id="count-ico">0</span>
             </div>
-            <span class="dropdown-item-count" id="count-ico">0</span>
-          </div>
 
-          <div class="dropdown-group-header">VIDEO (MP4, WEBM, M3U8, TS, MPD, MOV)</div>
-          <div class="dropdown-item" data-filter="video">
-            <div class="dropdown-item-left">
-              <span class="filter-dot dot-video"></span>
-              <span class="dropdown-item-title">VIDEOS</span>
+            <div class="dropdown-group-header">VIDEO (MP4, WEBM, M3U8, TS, MPD, MOV)</div>
+            <div class="dropdown-item" data-filter="video">
+              <div class="dropdown-item-left">
+                <span class="filter-dot dot-video"></span>
+                <span class="dropdown-item-title">VIDEOS</span>
+              </div>
+              <span class="dropdown-item-count" id="count-video">0</span>
             </div>
-            <span class="dropdown-item-count" id="count-video">0</span>
-          </div>
 
-          <div class="dropdown-group-header">AUDIO (MP3, M4A, AAC, OGG, OPUS, WAV, WEBA)</div>
-          <div class="dropdown-item" data-filter="audio">
-            <div class="dropdown-item-left">
-              <span class="filter-dot dot-audio"></span>
-              <span class="dropdown-item-title">AUDIO TRACKS</span>
+            <div class="dropdown-group-header">AUDIO (MP3, M4A, AAC, OGG, OPUS, WAV, WEBA)</div>
+            <div class="dropdown-item" data-filter="audio">
+              <div class="dropdown-item-left">
+                <span class="filter-dot dot-audio"></span>
+                <span class="dropdown-item-title">AUDIO TRACKS</span>
+              </div>
+              <span class="dropdown-item-count" id="count-audio">0</span>
             </div>
-            <span class="dropdown-item-count" id="count-audio">0</span>
-          </div>
 
-          <div class="dropdown-group-header">TYPOGRAPHY / FONTS</div>
-          <div class="dropdown-item" data-filter="font">
-            <div class="dropdown-item-left">
-              <span class="filter-dot dot-font"></span>
-              <span class="dropdown-item-title">FONTS (.woff, .woff2, .ttf, .otf, .eot)</span>
+            <div class="dropdown-group-header">TYPOGRAPHY / FONTS</div>
+            <div class="dropdown-item" data-filter="font">
+              <div class="dropdown-item-left">
+                <span class="filter-dot dot-font"></span>
+                <span class="dropdown-item-title">FONTS (.woff, .woff2, .ttf, .otf, .eot)</span>
+              </div>
+              <span class="dropdown-item-count" id="count-font">0</span>
             </div>
-            <span class="dropdown-item-count" id="count-font">0</span>
           </div>
-        </div>
-      </div>
-
-      <!-- Toolbar: Centered Preview Scale Slider -->
-      <div class="toolbar">
-        <div class="slider-group">
-          <span class="slider-label">PREVIEW SCALE:</span>
-          <input type="range" id="sizeSlider" min="70" max="250" value="115" step="5" />
-          <span id="sizeValue" class="slider-value">115px</span>
         </div>
       </div>
     </section>
@@ -183,12 +171,12 @@
 
     <!-- Results Gallery -->
     <main class="results-container" id="resultsContainer">
-      <!-- Empty State (No black box icon) -->
+      <!-- Empty State -->
       <div class="empty-state" id="emptyState">
         <p class="empty-desc">No assets harvested yet. Enter a website URL above and click <strong>HARVEST ASSETS</strong>.</p>
       </div>
 
-      <!-- Asset Grid (Flexbox wrapping grid for UXP) -->
+      <!-- Asset Grid (Strict 3 columns in Flexbox) -->
       <div class="asset-grid" id="assetGrid"></div>
     </main>
 

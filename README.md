@@ -41,10 +41,11 @@ Instead of opening a browser, inspecting elements, screenshotting, or manually s
   * **Audio**: MP3, M4A, AAC, OGG, OPUS, WAV, and WEBA.
   * **Fonts**: WOFF, WOFF2, TTF, OTF, and EOT (with external stylesheet `@font-face` parsing).
 * **Single Dropdown Filter**: Compact, space-saving filter button with popup menu and live item count badges for every individual format and category.
+* **Side-by-Side Quick Actions**: Streamlined dual button layout featuring **HARVEST ASSETS** on the left and the **FILTER** dropdown on the right, calibrated to the exact width of the URL input field.
 * **Direct Photoshop Canvas Integration**: One-click **RIP** sends images and vectors directly onto your active document canvas (with auto-document creation if canvas is empty).
 * **Typography & Media Previews**: Custom font cards with typography samples, video hover playback, and audio waveforms.
 * **Smart SVG Rasterizer Dialog**: When ripping vector SVGs, Photoshop's native rasterization dialog launches, giving you pixel-perfect resolution controls.
-* **Interactive Responsive Grid**: Thumbnails scale dynamically from 70px to 250px via a centered zoom slider.
+* **Auto-Scaling 3-Column Grid**: Preview items automatically scale to the plugin panel width, maintaining a consistent, responsive 3-column layout across all window sizes.
 * **Instant Reboot**: Clear your target URL, reset filters, and purge cached assets with a single click on **REBOOT**.
 * **High-Speed Smooth Scrolling**: Accelerated wheel responsiveness for scrolling through hundreds of harvested assets with zero lag.
 
