@@ -8,6 +8,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-BETA-ff007f?style=for-the-badge" alt="Beta"/>
+  <img src="https://img.shields.io/badge/Version-v1.1.0--beta-8b5cf6?style=for-the-badge" alt="Version"/>
   <img src="https://img.shields.io/badge/Adobe%20Photoshop-2022%20--%202026-00c8ff?style=for-the-badge&logo=adobephotoshop" alt="Photoshop Version"/>
   <img src="https://img.shields.io/badge/Platform-Windows%20%7C%20macOS-white?style=for-the-badge" alt="Platform"/>
   <img src="https://img.shields.io/badge/Developer-Nephuxs-black?style=for-the-badge" alt="Developer"/>
@@ -15,8 +16,14 @@
 
 ---
 
+<p align="center">
+  <img src="assets/screenshot.png" alt="RipperDoc Interface Preview in Photoshop" width="400"/>
+</p>
+
+---
+
 > [!WARNING]
-> **RipperDoc is currently in BETA (v1.0.0-beta).**  
+> **RipperDoc is currently in BETA (v1.1.0-beta).**  
 > We are actively testing features across various modern website architectures and Adobe Photoshop versions. If you encounter an unsupported website structure, edge cases, or bugs, please feel free to open an **[Issue](https://github.com/Nephuxs/ripperdoc/issues)**!
 
 ---
@@ -28,8 +35,9 @@
 Instead of opening a browser, inspecting elements, screenshotting, or manually saving files to your desktop:
 1. Paste a web URL into RipperDoc.
 2. Hit **HARVEST ASSETS**.
-3. Browse live thumbnails with pixel dimensions and format filtering.
-4. Click **RIP** to immediately import the asset into Photoshop as a new layer or open it with full rasterization settings.
+3. Filter by format using the quick dropdown menu.
+4. Browse auto-scaling thumbnails (always formatted in a clean 3-column grid) with pixel dimensions.
+5. Click **RIP** to immediately import the asset into Photoshop as a new layer or open it with full rasterization settings.
 
 ---
 
@@ -40,12 +48,12 @@ Instead of opening a browser, inspecting elements, screenshotting, or manually s
   * **Video**: MP4, WebM, M3U8 (HLS Streams), TS, MPD (DASH Streams), and MOV.
   * **Audio**: MP3, M4A, AAC, OGG, OPUS, WAV, and WEBA.
   * **Fonts**: WOFF, WOFF2, TTF, OTF, and EOT (with external stylesheet `@font-face` parsing).
-* **Single Dropdown Filter**: Compact, space-saving filter button with popup menu and live item count badges for every individual format and category.
-* **Side-by-Side Quick Actions**: Streamlined dual button layout featuring **HARVEST ASSETS** on the left and the **FILTER** dropdown on the right, calibrated to the exact width of the URL input field.
+* **Side-by-Side Matched Controls**: Flush, pixel-aligned layout featuring **HARVEST ASSETS** on the left and the **FILTER** dropdown on the right, perfectly matching the width of the URL input field.
+* **Smart Filter Dropdown**: Space-saving popup menu with comfortable line spacing, readable typography, and live item count badges for every individual format and category.
+* **Auto-Scaling 3-Column Grid**: Preview items automatically scale to the plugin panel width, maintaining a consistent, responsive 3-column layout across all window sizes without needing a manual slider.
 * **Direct Photoshop Canvas Integration**: One-click **RIP** sends images and vectors directly onto your active document canvas (with auto-document creation if canvas is empty).
 * **Typography & Media Previews**: Custom font cards with typography samples, video hover playback, and audio waveforms.
 * **Smart SVG Rasterizer Dialog**: When ripping vector SVGs, Photoshop's native rasterization dialog launches, giving you pixel-perfect resolution controls.
-* **Auto-Scaling 3-Column Grid**: Preview items automatically scale to the plugin panel width, maintaining a consistent, responsive 3-column layout across all window sizes.
 * **Instant Reboot**: Clear your target URL, reset filters, and purge cached assets with a single click on **REBOOT**.
 * **High-Speed Smooth Scrolling**: Accelerated wheel responsiveness for scrolling through hundreds of harvested assets with zero lag.
 
@@ -59,10 +67,10 @@ You can install RipperDoc using either the **One-Click Installer (`.ccx`)** or t
 
 1. Download **`RipperDoc.ccx`** from the [**Releases**](https://github.com/Nephuxs/ripperdoc/releases) page.
 2. **Double-click** `RipperDoc.ccx`.
-3. Adobe Creative Cloud will launch and display:
+3. Adobe Creative Cloud will launch and prompt you to install. If it says:
    > *"Verify Failed: This plugin has not been verified by Adobe"*  
    *(This is normal for all independent/beta plugins outside the public Adobe Marketplace).*
-4. Click **Install locally** $\rightarrow$ **OK**.
+4. Click **Install locally** (or **Install anyway**) $\rightarrow$ **OK**.
 5. Launch Adobe Photoshop $\rightarrow$ Click **Plugins** on the top menu bar $\rightarrow$ **RipperDoc**.
 
 ---
@@ -112,13 +120,13 @@ If you are modifying code or contributing:
 * **UXP (Unified Extensibility Platform) Manifest v5**
 * **Photoshop DOM & BatchPlay APIs** (`placeEvent`, `open`, `ActionDescriptor`)
 * **Pure JavaScript Scraper** (Native regex and token parsing with zero external browser dependencies)
-* **CSS Flexbox UI** optimized for Adobe CEP/UXP rendering engines
+* **Native UXP CSS Layout** optimized specifically for Adobe Photoshop's rendering engine
 
 ---
 
 ## 👤 Author & Credits
 
 * **Developer**: [Nephuxs](https://github.com/Nephuxs)
-* **Version**: `1.0.0-beta`
+* **Version**: `1.1.0-beta`
 
 Feel free to open an issue or pull request if you want to request new features or report bugs!
