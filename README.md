@@ -35,12 +35,16 @@ Instead of opening a browser, inspecting elements, screenshotting, or manually s
 
 ## 🚀 Key Features
 
-* **Universal Scraping**: Extracts PNG, JPG/JPEG, WebP, SVG, GIF, Video (MP4, WebM, MOV), and Audio (MP3, WAV, OGG).
-* **Direct Photoshop Integration**: One-click **RIP** sends images and vectors directly onto your active document canvas (with auto-document creation if canvas is empty).
-* **Interactive Responsive Grid**: Thumbnails scale dynamically from 60px to 360px via a centered zoom slider.
+* **Universal Asset Scraping**:
+  * **Images**: WebP, AVIF, PNG, JPG/JPEG, SVG, GIF, and ICO (Favicons/Icons).
+  * **Video**: MP4, WebM, M3U8 (HLS Streams), TS, MPD (DASH Streams), and MOV.
+  * **Audio**: MP3, M4A, AAC, OGG, OPUS, WAV, and WEBA.
+  * **Fonts**: WOFF, WOFF2, TTF, OTF, and EOT (with external stylesheet `@font-face` parsing).
+* **Single Dropdown Filter**: Compact, space-saving filter button with popup menu and live item count badges for every individual format and category.
+* **Direct Photoshop Canvas Integration**: One-click **RIP** sends images and vectors directly onto your active document canvas (with auto-document creation if canvas is empty).
+* **Typography & Media Previews**: Custom font cards with typography samples, video hover playback, and audio waveforms.
 * **Smart SVG Rasterizer Dialog**: When ripping vector SVGs, Photoshop's native rasterization dialog launches, giving you pixel-perfect resolution controls.
-* **Format Filter Bar**: Filter by `ALL`, `PNG`, `JPG`, `SVG`, `GIF`, `VIDEO`, or `AUDIO` with real-time asset count badges.
-* **Auto-MIME Fallback**: Automatically discovers true MIME content headers to safely place assets whose URLs lack file extensions.
+* **Interactive Responsive Grid**: Thumbnails scale dynamically from 70px to 250px via a centered zoom slider.
 * **Instant Reboot**: Clear your target URL, reset filters, and purge cached assets with a single click on **REBOOT**.
 * **High-Speed Smooth Scrolling**: Accelerated wheel responsiveness for scrolling through hundreds of harvested assets with zero lag.
 

@@ -48,91 +48,120 @@
       </div>
     </section>
 
-    <!-- Controls & Multi-Colored Filter Tabs (Single Row with Designed Icons) -->
+    <!-- Controls & Single Filter Dropdown -->
     <section class="controls-section">
-      <div class="filter-tabs" id="filterTabs">
-        <div class="filter-col">
-          <button class="tab-btn tab-all active" data-filter="all" title="All Files">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-              <rect x="3" y="3" width="7" height="7" rx="1"></rect>
-              <rect x="14" y="3" width="7" height="7" rx="1"></rect>
-              <rect x="14" y="14" width="7" height="7" rx="1"></rect>
-              <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+      <div class="filter-dropdown-wrapper" id="filterDropdownWrapper">
+        <button id="filterDropdownBtn" class="filter-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false" title="Click to select file filter">
+          <div class="filter-btn-left">
+            <svg class="filter-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
             </svg>
-            <span class="tab-label">ALL</span>
-          </button>
-          <span class="tab-count" id="countAll">0</span>
-        </div>
+            <span class="filter-label-prefix">FILTER:</span>
+            <span id="activeFilterName" class="filter-label-active">ALL ASSETS</span>
+          </div>
+          <div class="filter-btn-right">
+            <span id="activeFilterBadge" class="filter-count-badge">0</span>
+            <svg class="dropdown-chevron" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </button>
 
-        <div class="filter-col">
-          <button class="tab-btn tab-png" data-filter="png" title="PNG Images">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-              <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-              <circle cx="8.5" cy="8.5" r="1.5"></circle>
-              <polyline points="21 15 16 10 5 21"></polyline>
-            </svg>
-            <span class="tab-label">PNG</span>
-          </button>
-          <span class="tab-count" id="countPng">0</span>
-        </div>
+        <!-- Dropdown Menu List with Categorized Badges -->
+        <div id="filterDropdownMenu" class="filter-dropdown-menu" style="display: none;">
+          <div class="dropdown-group-header">PRIMARY</div>
+          <div class="dropdown-item active" data-filter="all">
+            <div class="dropdown-item-left">
+              <span class="filter-dot dot-all"></span>
+              <span class="dropdown-item-title">ALL ASSETS</span>
+            </div>
+            <span class="dropdown-item-count" id="count-all">0</span>
+          </div>
 
-        <div class="filter-col">
-          <button class="tab-btn tab-jpg" data-filter="jpg" title="JPG Photos">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-              <circle cx="12" cy="13" r="4"></circle>
-            </svg>
-            <span class="tab-label">JPG</span>
-          </button>
-          <span class="tab-count" id="countJpg">0</span>
-        </div>
+          <div class="dropdown-group-header">IMAGES (WEBP, AVIF, PNG, JPG, SVG, GIF, ICO)</div>
+          <div class="dropdown-item" data-filter="images">
+            <div class="dropdown-item-left">
+              <span class="filter-dot dot-images"></span>
+              <span class="dropdown-item-title">ALL IMAGES</span>
+            </div>
+            <span class="dropdown-item-count" id="count-images">0</span>
+          </div>
+          <div class="dropdown-item" data-filter="png">
+            <div class="dropdown-item-left">
+              <span class="filter-dot dot-png"></span>
+              <span class="dropdown-item-title">PNG (.png)</span>
+            </div>
+            <span class="dropdown-item-count" id="count-png">0</span>
+          </div>
+          <div class="dropdown-item" data-filter="jpg">
+            <div class="dropdown-item-left">
+              <span class="filter-dot dot-jpg"></span>
+              <span class="dropdown-item-title">JPG / JPEG (.jpg, .jpeg)</span>
+            </div>
+            <span class="dropdown-item-count" id="count-jpg">0</span>
+          </div>
+          <div class="dropdown-item" data-filter="webp">
+            <div class="dropdown-item-left">
+              <span class="filter-dot dot-webp"></span>
+              <span class="dropdown-item-title">WEBP (.webp)</span>
+            </div>
+            <span class="dropdown-item-count" id="count-webp">0</span>
+          </div>
+          <div class="dropdown-item" data-filter="avif">
+            <div class="dropdown-item-left">
+              <span class="filter-dot dot-avif"></span>
+              <span class="dropdown-item-title">AVIF (.avif)</span>
+            </div>
+            <span class="dropdown-item-count" id="count-avif">0</span>
+          </div>
+          <div class="dropdown-item" data-filter="svg">
+            <div class="dropdown-item-left">
+              <span class="filter-dot dot-svg"></span>
+              <span class="dropdown-item-title">SVG Vector (.svg)</span>
+            </div>
+            <span class="dropdown-item-count" id="count-svg">0</span>
+          </div>
+          <div class="dropdown-item" data-filter="gif">
+            <div class="dropdown-item-left">
+              <span class="filter-dot dot-gif"></span>
+              <span class="dropdown-item-title">GIF Animation (.gif)</span>
+            </div>
+            <span class="dropdown-item-count" id="count-gif">0</span>
+          </div>
+          <div class="dropdown-item" data-filter="ico">
+            <div class="dropdown-item-left">
+              <span class="filter-dot dot-ico"></span>
+              <span class="dropdown-item-title">ICO Icon / Favicon (.ico)</span>
+            </div>
+            <span class="dropdown-item-count" id="count-ico">0</span>
+          </div>
 
-        <div class="filter-col">
-          <button class="tab-btn tab-svg" data-filter="svg" title="Vector SVG">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-              <path d="M2 17l10 5 10-5"></path>
-              <path d="M2 12l10 5 10-5"></path>
-            </svg>
-            <span class="tab-label">SVG</span>
-          </button>
-          <span class="tab-count" id="countSvg">0</span>
-        </div>
+          <div class="dropdown-group-header">VIDEO (MP4, WEBM, M3U8, TS, MPD, MOV)</div>
+          <div class="dropdown-item" data-filter="video">
+            <div class="dropdown-item-left">
+              <span class="filter-dot dot-video"></span>
+              <span class="dropdown-item-title">VIDEOS</span>
+            </div>
+            <span class="dropdown-item-count" id="count-video">0</span>
+          </div>
 
-        <div class="filter-col">
-          <button class="tab-btn tab-gif" data-filter="gif" title="GIF Animations">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-              <rect x="2" y="2" width="20" height="20" rx="2"></rect>
-              <line x1="7" y1="2" x2="7" y2="22"></line>
-              <line x1="17" y1="2" x2="17" y2="22"></line>
-              <line x1="2" y1="12" x2="22" y2="12"></line>
-            </svg>
-            <span class="tab-label">GIF</span>
-          </button>
-          <span class="tab-count" id="countGif">0</span>
-        </div>
+          <div class="dropdown-group-header">AUDIO (MP3, M4A, AAC, OGG, OPUS, WAV, WEBA)</div>
+          <div class="dropdown-item" data-filter="audio">
+            <div class="dropdown-item-left">
+              <span class="filter-dot dot-audio"></span>
+              <span class="dropdown-item-title">AUDIO TRACKS</span>
+            </div>
+            <span class="dropdown-item-count" id="count-audio">0</span>
+          </div>
 
-        <div class="filter-col">
-          <button class="tab-btn tab-video" data-filter="video" title="Video Clips">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-              <polygon points="23 7 16 12 23 17 23 7"></polygon>
-              <rect x="1" y="5" width="15" height="14" rx="2"></rect>
-            </svg>
-            <span class="tab-label">VID</span>
-          </button>
-          <span class="tab-count" id="countVideo">0</span>
-        </div>
-
-        <div class="filter-col">
-          <button class="tab-btn tab-audio" data-filter="audio" title="Audio Tracks">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-              <path d="M9 18V5l12-2v13"></path>
-              <circle cx="6" cy="18" r="3"></circle>
-              <circle cx="18" cy="16" r="3"></circle>
-            </svg>
-            <span class="tab-label">AUD</span>
-          </button>
-          <span class="tab-count" id="countAudio">0</span>
+          <div class="dropdown-group-header">TYPOGRAPHY / FONTS</div>
+          <div class="dropdown-item" data-filter="font">
+            <div class="dropdown-item-left">
+              <span class="filter-dot dot-font"></span>
+              <span class="dropdown-item-title">FONTS (.woff, .woff2, .ttf, .otf, .eot)</span>
+            </div>
+            <span class="dropdown-item-count" id="count-font">0</span>
+          </div>
         </div>
       </div>
 
